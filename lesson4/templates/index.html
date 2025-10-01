@@ -1,0 +1,217 @@
+﻿{% extends "base.html" %}
+
+{% block title %}台北職能學院｜引領職能新未來{% endblock %}
+
+{% block content %}
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="#top">
+            <span class="brand-logo" aria-hidden="true">TP</span>
+            <span>
+                <span class="brand-title">台北職能學院</span>
+                <span class="brand-subtitle">Taipei Vocational Academy</span>
+            </span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="切換選單">
+            <span></span>
+        </label>
+        <nav class="main-nav">
+            <a href="#about">學院簡介</a>
+            <a href="#programs">特色系所</a>
+            <a href="#news">最新消息</a>
+            <a href="#campus">校園生活</a>
+            <a href="#admissions">招生資訊</a>
+            <a href="#contact">聯絡我們</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top">
+    <section class="hero" id="about">
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <p class="eyebrow">引領產業趨勢 · 鏈結未來職涯</p>
+                <h1>打造跨域專才，與世界同步的職能教育</h1>
+                <p>台北職能學院結合企業實務與專業師資，提供完整技能培訓、創新課程與國際合作機會，幫助學生在最短時間內掌握專業能力，接軌職場。</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#admissions">立即了解招生</a>
+                    <a class="btn btn-outline" href="#programs">探索系所</a>
+                </div>
+                <ul class="hero-stats">
+                    <li>
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">畢業即就業率</span>
+                    </li>
+                    <li>
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">合作企業夥伴</span>
+                    </li>
+                    <li>
+                        <span class="stat-number">30</span>
+                        <span class="stat-label">職能認證課程</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="hero-media">
+                <div class="hero-card">
+                    <h3>智慧校園</h3>
+                    <p>以 AI 與數據打造個人化學習歷程，讓每位學生都能找到自己的職涯節奏。</p>
+                </div>
+                <div class="hero-card">
+                    <h3>產學共創</h3>
+                    <p>每年舉辦超過 200 場業界工作坊與實習，與企業共同開發專題。</p>
+                </div>
+                <div class="hero-tag">2025 BEST SKILL ACADEMY</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" aria-label="學院特色">
+        <div class="container feature-grid">
+            <article class="feature-card">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <h3>職涯導師制度</h3>
+                <p>由企業導師與校內師資共同輔導，打造專屬職涯地圖。</p>
+            </article>
+            <article class="feature-card">
+                <i class="fa-solid fa-vr-cardboard" aria-hidden="true"></i>
+                <h3>沉浸式實作</h3>
+                <p>VR/AR 實境教室與智慧工廠，讓技能養成更貼近真實情境。</p>
+            </article>
+            <article class="feature-card">
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                <h3>國際認證</h3>
+                <p>多國技職院校合作，輔導取得國際證照與雙聯學位。</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="programs" id="programs" aria-labelledby="programs-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="programs-title">特色系所</h2>
+                <p>跨域融合與實務導向的課程設計，接軌產業最新技術。</p>
+            </div>
+            <div class="program-grid">
+                {% for program in programs %}
+                <article class="program-card">
+                    <div class="program-icon">
+                        <i class="{{ program.icon }}" aria-hidden="true"></i>
+                    </div>
+                    <h3>{{ program.name }}</h3>
+                    <p>{{ program.description }}</p>
+                    <a class="program-link" href="#admissions">了解課程規劃 <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="news" id="news" aria-labelledby="news-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="news-title">最新消息</h2>
+                <a class="section-link" href="#">查看全部消息 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="news-list">
+                {% for item in news %}
+                <article class="news-card">
+                    <span class="news-date">{{ item.date }}</span>
+                    <span class="news-category">{{ item.category }}</span>
+                    <h3>{{ item.title }}</h3>
+                    <a class="news-link" href="#">瞭解詳情 <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="campus" id="campus" aria-labelledby="campus-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="campus-title">校園生活</h2>
+                <p>從創客空間到國際交流，打造多元且充滿活力的學習場域。</p>
+            </div>
+            <div class="campus-grid">
+                <article class="campus-card">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="學生在智慧教室合作學習">
+                    <div class="campus-card-body">
+                        <h3>智慧創客中心</h3>
+                        <p>提供 24 小時開放的共享工作坊，設備包含 3D 列印、雷射雕刻與電子製作工具。</p>
+                    </div>
+                </article>
+                <article class="campus-card">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" alt="國際交流學生合照">
+                    <div class="campus-card-body">
+                        <h3>國際交流論壇</h3>
+                        <p>每年與國際技職院校舉辦論壇與短期交換，拓展學生全球視野。</p>
+                    </div>
+                </article>
+                <article class="campus-card">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="企業實習合作活動">
+                    <div class="campus-card-body">
+                        <h3>企業實習計畫</h3>
+                        <p>與 150 家企業合作的實習與專題計畫，累積實戰經驗與職場軟實力。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="admissions">
+        <div class="container cta-inner">
+            <div>
+                <h2>2026 學年度招生中</h2>
+                <p>從專業證照輔導、跨域課程到企業實習，完整支持你的學習旅程。立即線上報名，掌握職能新趨勢。</p>
+            </div>
+            <a class="btn btn-light" href="#">填寫報名表 <i class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+            <div>
+                <h2 id="contact-title">聯絡我們</h2>
+                <p>歡迎預約校園導覽或諮詢招生與課程資訊，招生服務中心將於兩個工作日內回覆。</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> 台北市中山區中山北路三段 123 號</li>
+                    <li><i class="fa-solid fa-phone"></i> (02) 1234-5678</li>
+                    <li><i class="fa-solid fa-envelope"></i> admissions@tpvoc.edu.tw</li>
+                    <li><i class="fa-solid fa-clock"></i> 週一至週五 09:00-18:00</li>
+                </ul>
+            </div>
+            <div class="contact-card">
+                <form class="contact-form" action="#" method="post">
+                    <label>
+                        姓名
+                        <input type="text" name="name" placeholder="請輸入姓名" required>
+                    </label>
+                    <label>
+                        電子郵件
+                        <input type="email" name="email" placeholder="example@mail.com" required>
+                    </label>
+                    <label>
+                        想了解的主題
+                        <select name="topic" required>
+                            <option value="">請選擇</option>
+                            <option value="program">系所課程</option>
+                            <option value="admission">招生流程</option>
+                            <option value="visit">校園參觀</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </label>
+                    <label>
+                        留言
+                        <textarea name="message" rows="3" placeholder="請簡短描述您的需求"></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">送出訊息</button>
+                </form>
+            </div>
+        </div>
+        <div class="map-embed" aria-hidden="true">
+            <iframe title="台北職能學院位置" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8855547282577!2d121.52512627604323!3d25.044047937880324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a968dde559d5%3A0xe0d7b4430ebdcaf!2z5Y-w5YyX5biC56uL5aSn5a245Y2A5Lit5bGx6Lev5LqM5rKi5bel5Y-w5Luj5aC0!5e0!3m2!1szh-TW!2stw!4v1706787890000!5m2!1szh-TW!2stw" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+</main>
+{% endblock %}
