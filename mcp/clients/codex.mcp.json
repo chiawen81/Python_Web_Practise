@@ -1,0 +1,13 @@
+﻿{
+  "mcpServers": {
+    "chrome-mcp": {
+      "command": "python",
+      "args": ["-m", "your_mcp_chrome"],
+      "env": {
+        "CHROME_REMOTE_URL": "http://127.0.0.1:9222",
+        "CHROME_PROFILE": "%LOCALAPPDATA%/ChromeMCP"
+      },
+      "transport": "stdio"
+    }
+  }
+}
