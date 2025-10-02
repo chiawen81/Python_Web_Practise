@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ school_info.name }} - {{ school_info.slogan }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="#">{{ school_info.name }}</a></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">關於我們</a></li>
+                    <li><a href="#departments">科系介紹</a></li>
+                    <li><a href="#events">最新活動</a></li>
+                    <li><a href="#contact">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>{{ school_info.slogan }}</h2>
+            <p>提供最多元、最專業的職業訓練課程，協助您開啟職涯新篇章。</p>
+            <a href="#departments" class="btn">探索所有課程</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="about" class="about-section">
+            <h2 class="section-title">關於我們</h2>
+            <p>台北職能學院成立於1968年，致力於提供社會人士及青年學子最專業的職業訓練，課程涵蓋資訊、設計、工商、觀光等多元領域，是您提升職場競爭力的最佳選擇。</p>
+        </section>
+
+        <section id="departments" class="departments-section">
+            <h2 class="section-title">科系介紹</h2>
+            <div class="departments-grid">
+                {% for dept in departments %}
+                <div class="department-card">
+                    <div class="dept-icon">{{ dept.icon }}</div>
+                    <h3>{{ dept.name }}</h3>
+                    <p>{{ dept.description }}</p>
+                    <ul class="course-list">
+                        {% for course in dept.courses %}
+                        <li>{{ course }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="events" class="events-section">
+            <h2 class="section-title">最新活動</h2>
+            <div class="events-list">
+                {% for event in events %}
+                <div class="event-item">
+                    <div class="event-date">{{ event.date }}</div>
+                    <div class="event-details">
+                        <h4>{{ event.title }}</h4>
+                        <p>{{ event.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h3>聯絡我們</h3>
+            <p>地址：{{ school_info.address }}</p>
+            <p>電話：{{ school_info.phone }}</p>
+            <p>&copy; 2025 {{ school_info.name }}. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
