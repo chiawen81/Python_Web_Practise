@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ course_info.title }} - 職能發展學院</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
     <!-- 導覽列 -->
     <nav class="navbar">
@@ -19,18 +17,10 @@
                 <span></span>
             </button>
             <ul class="nav-list" id="navList">
-                <li class="nav-item">
-                    <a href="#hero" class="active">首頁</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#curriculum">課程大綱</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#reviews">學員評價</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#faq">常見問題</a>
-                </li>
+                <li class="nav-item"><a href="#hero" class="active">首頁</a></li>
+                <li class="nav-item"><a href="#curriculum">課程大綱</a></li>
+                <li class="nav-item"><a href="#reviews">學員評價</a></li>
+                <li class="nav-item"><a href="#faq">常見問題</a></li>
                 <button class="btn-enroll-mobile">立即報名</button>
             </ul>
         </div>
@@ -57,7 +47,7 @@
                     <p>{{ course_info.duration }}</p>
                 </div>
                 <div class="info-card">
-                    <h3>難度等級</h3>
+                    <h3>適合程度</h3>
                     <p>{{ course_info.level }}</p>
                 </div>
                 <div class="info-card">
@@ -115,7 +105,7 @@
                         <div class="reviewer-name">{{ review.name }}</div>
                         <div class="review-rating">
                             {% for i in range(review.rating) %}
-                            ⭐
+                            <span class="star">★</span>
                             {% endfor %}
                         </div>
                     </div>
@@ -142,8 +132,8 @@
         <!-- CTA 區塊 -->
         <section class="cta">
             <div class="cta-content">
-                <h2>準備好開始你的 AI 學習之旅了嗎？</h2>
-                <p>立即報名，獲得早鳥優惠！</p>
+                <h2>準備好踏上 AI 學習之旅了嗎？</h2>
+                <p>立即報名，享有早鳥優惠與專屬學習資源。</p>
                 <button class="btn-primary">立即報名</button>
             </div>
         </section>
@@ -155,10 +145,10 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>關於我們</h4>
-                    <p>職能發展學院致力於提供高品質的專業培訓課程</p>
+                    <p>智能學習學院致力提供高品質專業培訓課程。</p>
                 </div>
                 <div class="footer-section">
-                    <h4>聯絡我們</h4>
+                    <h4>聯絡方式</h4>
                     <p>Email: info@example.com</p>
                     <p>電話: (02) 1234-5678</p>
                 </div>
@@ -168,7 +158,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 職能發展學院. All rights reserved.</p>
+                <p>&copy; 2025 智能學習學院. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -192,14 +182,13 @@
             });
         });
 
-        // 點擊選單外部關閉選單
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
+        document.addEventListener('click', event => {
+            if (!hamburger.contains(event.target) && !navList.contains(event.target)) {
                 hamburger.classList.remove('active');
                 navList.classList.remove('active');
             }
         });
     </script>
 </body>
-
 </html>
+

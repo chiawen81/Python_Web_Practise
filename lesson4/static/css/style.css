@@ -354,6 +354,8 @@ img {
 .section-header h2 {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin: 0;
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary);
 }
 
 .section-header p {
@@ -684,21 +686,21 @@ img {
         padding: 0.45rem 0;
     }
 
-    .nav-toggle:checked ~ .main-nav {
+    .nav-toggle:checked~.main-nav {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
     }
 
-    .nav-toggle:checked + .nav-toggle-label span {
+    .nav-toggle:checked+.nav-toggle-label span {
         background: transparent;
     }
 
-    .nav-toggle:checked + .nav-toggle-label span::before {
+    .nav-toggle:checked+.nav-toggle-label span::before {
         transform: translateY(6px) rotate(45deg);
     }
 
-    .nav-toggle:checked + .nav-toggle-label span::after {
+    .nav-toggle:checked+.nav-toggle-label span::after {
         transform: translateY(-6px) rotate(-45deg);
     }
 

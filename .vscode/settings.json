@@ -1,0 +1,17 @@
+{
+    "chat.mcp.serverSampling": {
+        "class-practise-web/.vscode/mcp.json: chrome-devtool": {
+            "allowedModels": [
+                "copilot/gpt-4.1",
+                "copilot/claude-3.5-sonnet",
+                "copilot/gemini-2.0-flash-001",
+                "copilot/gpt-3.5-turbo",
+                "copilot/gpt-4o",
+                "copilot/gpt-4o-mini",
+                "copilot/gpt-5-mini",
+                "openai/gpt-5-mini",
+                "copilot/o3-mini"
+            ]
+        }
+    }
+}

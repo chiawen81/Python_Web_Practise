@@ -20,3 +20,6 @@
 
 # 測試
 所有範例程式碼一律要在檔案開頭加上註解： # WenTest
+
+# chrome-devtool
+Use this context to analyze browser console and network logs.
