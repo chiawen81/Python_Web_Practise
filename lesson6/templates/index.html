@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course_info.title }} - 職能發展學院</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">📚 職能發展學院</a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li class="nav-item"><a href="#hero" class="active">首頁</a></li>
+                <li class="nav-item"><a href="#curriculum">課程大綱</a></li>
+                <li class="nav-item"><a href="#reviews">學員評價</a></li>
+                <li class="nav-item"><a href="#faq">常見問題</a></li>
+                <button class="btn-enroll-mobile">立即報名</button>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 區塊 -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">{{ course_info.title }}</h1>
+                <p class="hero-subtitle">{{ course_info.subtitle }}</p>
+                <button class="btn-primary">立即報名</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要內容區 -->
+    <main class="container">
+        <!-- 課程資訊卡片 -->
+        <section class="course-overview">
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>課程時長</h3>
+                    <p>{{ course_info.duration }}</p>
+                </div>
+                <div class="info-card">
+                    <h3>適合程度</h3>
+                    <p>{{ course_info.level }}</p>
+                </div>
+                <div class="info-card">
+                    <h3>授課講師</h3>
+                    <p>{{ course_info.instructor }}</p>
+                </div>
+                <div class="info-card">
+                    <h3>開課日期</h3>
+                    <p>{{ course_info.start_date }}</p>
+                </div>
+                <div class="info-card highlight">
+                    <h3>課程費用</h3>
+                    <p class="price">{{ course_info.price }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 課程特色 -->
+        <section class="features">
+            <h2 class="section-title">課程特色</h2>
+            <div class="feature-grid">
+                {% for feature in features %}
+                <div class="feature-card">
+                    <div class="feature-icon">{{ feature.icon }}</div>
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- 課程大綱 -->
+        <section id="curriculum" class="curriculum">
+            <h2 class="section-title">課程大綱</h2>
+            <div class="curriculum-list">
+                {% for item in curriculum %}
+                <div class="curriculum-item">
+                    <div class="week-badge">第 {{ item.week }} 週</div>
+                    <div class="curriculum-content">
+                        <h3>{{ item.topic }}</h3>
+                        <p>{{ item.content }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- 學員評價 -->
+        <section id="reviews" class="reviews">
+            <h2 class="section-title">學員評價</h2>
+            <div class="review-grid">
+                {% for review in reviews %}
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-name">{{ review.name }}</div>
+                        <div class="review-rating">
+                            {% for i in range(review.rating) %}
+                            <span class="star">★</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="review-comment">{{ review.comment }}</p>
+                    <p class="review-date">{{ review.date }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- 常見問題 -->
+        <section id="faq" class="faq">
+            <h2 class="section-title">常見問題</h2>
+            <div class="faq-list">
+                {% for faq in faqs %}
+                <div class="faq-item">
+                    <h3 class="faq-question">Q: {{ faq.question }}</h3>
+                    <p class="faq-answer">A: {{ faq.answer }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- CTA 區塊 -->
+        <section class="cta">
+            <div class="cta-content">
+                <h2>準備好踏上 AI 學習之旅了嗎？</h2>
+                <p>立即報名，享有早鳥優惠與專屬學習資源。</p>
+                <button class="btn-primary">立即報名</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>關於我們</h4>
+                    <p>智能學習學院致力提供高品質專業培訓課程。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>聯絡方式</h4>
+                    <p>Email: info@example.com</p>
+                    <p>電話: (02) 1234-5678</p>
+                </div>
+                <div class="footer-section">
+                    <h4>追蹤我們</h4>
+                    <p>Facebook | Instagram | LinkedIn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智能學習學院. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 漢堡選單功能
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.getElementById('navList');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+
+        // 點擊選單項目後關閉選單
+        const navItems = document.querySelectorAll('.nav-item a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navList.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', event => {
+            if (!hamburger.contains(event.target) && !navList.contains(event.target)) {
+                hamburger.classList.remove('active');
+                navList.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
