@@ -3,7 +3,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route("/test")
+@app.route("/lesson5/hw")
 def index():
     school_info = {
         "name": "台北職能學院",
